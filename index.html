@@ -51,7 +51,7 @@
                               </div>
                             <!-- Expense Area -->
                             
-                                <h2 class="text-center">Expences</h2>
+                                <h2 class="text-center mt-3">Expences</h2>
                                 <div class="form-group row">
                                     <label for="Food" class="col-sm-2 col-form-label">Food</label>
                                     <div class="col-sm-10">
@@ -79,24 +79,27 @@
 
                                 <!-- Balance -->
 
-                                    <h2 class="text-center mt-3">Total Expence : <span>0000</span></h2>
-                                    <h2 class="text-center mt-3">Balance : <span>0000</span></h2>
+                                    <h2 class="text-center mt-3">Total Expence : <span id="exp">0000</span></h2>
+                                    <h2 class="text-center mt-3 mb-3">Balance : <span id="bal">0000</span></h2>
 
                         </form>
 
-                        <div class="d-flex mt-3 col-md-2">
-                          
-                            <label for="Income" class="col-sm-2 col-form-label">Save</label>
-                            <input type="" id="bln-save" placeholder="number">
+                        <!-- Savings Section -->
+
+                        <div class="d-md-flex justify-content-around">
+                          <div >
+                            <label for="save">Save</label>
+                            <input id="save-input" type="text " placeholder="Enter your number">
                             
-                         
-                          <span class="ms-4 me-4"> % </span>
-                           <button class="btn btn-secondary me-auto"> save </button>
-                           
+                          </div>
+                          <p class="text-center"> % </p>
+                          <div >
+                            <button id="save-btn" class="btn btn-primary w-100 ">Save</button>
+                          </div>
                         </div>
 
-                        <h4 class="text-center mt-3">Savings account : <span>0000</span></h4>
-                        <h4 class="text-center mt-3">Remaining Balance : <span>0000</span></h4>
+                        <h4 id='interest' class="text-center mt-3 paragraph">Savings account : <span>0000</span></h4>
+                        <h4 class="text-center mt-3 paragraph">Remaining Balance : <span>0000</span></h4>
 
                     </div>
                 </div>
@@ -104,6 +107,13 @@
         </div>
 
     </main>
+
+    <!-- footer Section -->
+
+    <footer>
+      <h4 class="text-center">Thanks for visiting my site</h4>
+      <p class="text-center">sajib Hossain</p>
+    </footer>
 
      <!--js file add link  -->
       <script src="js/app.js"></script>
