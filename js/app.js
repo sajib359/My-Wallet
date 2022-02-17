@@ -59,4 +59,13 @@ function validInput(){
 
  document.getElementById('save-btn').addEventListener('click' , function(){
      savingsvalid();
+     if(saveInput.value > 0 ){
+        console.log('this not valid')
+     }
+     else{
+         let interest = (parseFloat(saveInput.value)/100) * parseFloat (incomeInput.value);
+         document.getElementById('interest').innerText=interest;
+
+     }
+
  })
