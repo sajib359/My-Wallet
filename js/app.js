@@ -4,6 +4,7 @@ let rentInput =document.getElementById('exp-rent');
 let clothInput =document.getElementById('exp-cloth');
 let saveInput = document.getElementById('save-input');
 
+
 //income or expense validation
 
 function validInput(){
@@ -37,7 +38,7 @@ function validInput(){
        console.log('this not valid')
     } else{
         
-    let balance = parseFloat(incomeInput.value) - parseFloat(foodInput.value) - parseFloat(rentInput.value) -parseFloat(clothInput.value);
+     let balance = parseFloat(incomeInput.value) - parseFloat(foodInput.value) - parseFloat(rentInput.value) -parseFloat(clothInput.value);
 
     document.getElementById('balance').innerText = balance;
 
@@ -47,6 +48,7 @@ function validInput(){
     }
     
  })
+// savings section start
 
  function savingsvalid(){
     if(saveInput.value > 0 ){
@@ -58,6 +60,7 @@ function validInput(){
  }
 
  document.getElementById('save-btn').addEventListener('click' , function(){
+     console.log('hhjk')
      savingsvalid();
      if(saveInput.value > 0 ){
         console.log('this not valid')
@@ -65,6 +68,8 @@ function validInput(){
      else{
          let interest = (parseFloat(saveInput.value)/100) * parseFloat (incomeInput.value);
          document.getElementById('interest').innerText=interest;
+         let remaining = balance-interest;
+         document.getElementById('remain').innerText = remaining;
 
      }
 
