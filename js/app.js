@@ -1,62 +1,62 @@
-let incomeField = document.getElementById('input-num');
-let foodField = document.getElementById('exp-food');
-let rentField = document.getElementById('exp-rent');
-let transportField = document.getElementById('exp-transport');
-let saveField = document.getElementById('save-btn');
+let incomeInput = document.getElementById('input-num');
+let foodInput = document.getElementById('exp-food');
+let rentInput =document.getElementById('exp-rent');
+let clothInput =document.getElementById('exp-cloth');
+let saveInput = document.getElementById('save-input');
 
-function checkInput() {
-    if (isNaN(parseFloat(incomeField.value))) {
-        document.getElementById("income-alt").style.display = "block";
-    } else {
-        document.getElementById("income-alt").style.display = "none";
-    }
-    // checking food field 
-    if (isNaN(parseFloat(foodField.value))) {
-        document.getElementById("food-alt").style.display = "block";
-    } else {
-        document.getElementById("food-alt").style.display = "none";
+//income or expense validation
 
-    }
-    // checking rent field 
-    if (isNaN(parseFloat(rentField.value))) {
-        document.getElementById("rent-alt").style.display = "block";
+function validInput(){
+    console.log(incomeInput.value)
+    if(incomeInput.value > 0 ){
+        document.getElementById('income-alt').style.display='none';
     } else {
-        document.getElementById("rent-alt").style.display = "none";
+        document.getElementById('income-alt').style.display='block';
     }
-    // checking cloth field 
-    if (isNaN(parseFloat(transportField.value))) {
-        document.getElementById("transport-alt").style.display = "block";
+    if(foodInput.value > 0 ){
+        document.getElementById('food-alt').style.display='none';
     } else {
-        document.getElementById("transport-alt").style.display = "none";
-    }
+        document.getElementById('food-alt').style.display='block'; 
+      }
+    if(rentInput.value > 0 ){
+        document.getElementById('rent-alt').style.display='none';
+    } else {
+        document.getElementById('rent-alt').style.display='block';    }
+    if(clothInput.value > 0 ){
+        document.getElementById('cloth-alt').style.display='none';
+    } else {
+        document.getElementById('cloth-alt').style.display='block';    }
+}
 
-    // end calculation if any number error 
-    if(isNaN(parseFloat(incomeField.value)) || isNaN(parseFloat(foodField.value)) || isNaN(parseFloat(rentField.value)) || isNaN(parseFloat(transportField.value))){
-        return false;
+
+// calculation button function
+
+ document.getElementById('cal-btn').addEventListener('click',function(){
+    validInput();
+    if ( parseFloat(incomeInput.value) < 0 || parseFloat(foodInput.value) <0 || parseFloat(rentInput.value) <0 || parseFloat(clothInput.value) <0 ){
+       console.log('this not valid')
     } else{
-        return true;
+        
+    let balance = parseFloat(incomeInput.value) - parseFloat(foodInput.value) - parseFloat(rentInput.value) -parseFloat(clothInput.value);
+
+    document.getElementById('balance').innerText = balance;
+
+    let expense = parseFloat(foodInput.value) + parseFloat(rentInput.value) + parseFloat(clothInput.value);
+
+    document.getElementById('exp').innerText = expense;
     }
+    
+ })
 
-}
-
-function checkSave() {
-    // checking saving ammount field 
-    if (isNaN(parseFloat(saveField.value))) {
-        document.getElementById("saveWarn").style.display = "block";
-        return false;
+ function savingsvalid(){
+    if(saveInput.value > 0 ){
+        document.getElementById('save-alt').style.display='none';
     } else {
-        document.getElementById("saveWarn").style.display = "none";
-        return true;
+        document.getElementById('save-alt').style.display='block';
     }
-}
 
-document.getElementById('cal-btn').addEventListener('click',function(){
-    checkInput();
-    if(checkInput() == true){
-    let balance = parseFloat(incomeField.value) - parseFloat(foodField.value) - parseFloat(rentField.value) - parseFloat(transportField.value);
-     console.log(balance);
-     let totalExp = parseFloat(foodField.value) + parseFloat(rentField.value) + parseFloat(transportField.value);
-     document.getElementById('bal').innerText = balance;
-     document.getElementById('exp').innerText=totalExp; 
-    }
-})
+ }
+
+ document.getElementById('save-btn').addEventListener('click' , function(){
+     savingsvalid();
+ })
